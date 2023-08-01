@@ -38,6 +38,7 @@ fs.readFile(fileName, "utf-8", (err, data) => {
   console.log(`Total word count : ${wordCount}`);
 });
 
+// server listening
 app.listen(PORT, () => {
   console.log(`server listening on ${PORT}`);
 });

@@ -20,11 +20,23 @@ console.log(sumOfArray([1, 2, 3, 4])); // consoles 10
 
 //task 3, file reading
 const countWords = (text) => {
-    
-}
+  const words = text.split(/\s+/).filter((word) => word !== "");
+  return words.length;
+};
+
+//testing the countWords function
+console.log(countWords("Hello, My name is Rishal a Full stack developer")); // prints 9
 
 const fileName = "data.txt"; //assuming the file is in the directory
 
+fs.readFile(fileName, "utf-8", (err, data) => {
+  if (err) {
+    console.error(`Error reading the file: ${err.message}`);
+    return;
+  }
+  const wordCount = countWords(data);
+  console.log(`Total word count : ${wordCount}`);
+});
 
 app.listen(PORT, () => {
   console.log(`server listening on ${PORT}`);
